@@ -1,0 +1,110 @@
+html, body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 450%;
+  background-size: 100%;
+  background-image: url('../img/bg.png');
+  background-size: cover;
+  background-position: center;
+  margin: 0;
+  background-repeat: no-repeat;
+}
+
+
+#logo {
+display: flex;
+justify-content:flex-start ;
+align-items: flex-start;
+  position: absolute;
+  width: 400px;
+  top: 20px;
+}
+
+#akvariemanden {
+  position: absolute;
+  width: 300px;
+  transition: transform 0.5s ease, top 0.1s, left 0.1s; 
+  z-index: 2;
+}
+
+#klovnfisk {
+  position: absolute;
+  width: 10%;
+  top: 110vh;
+  left: 17vh;
+  z-index: 1;
+}
+
+#kejserfisk {
+  position: absolute;
+  width: 19%;
+  top: 300vh;
+  left: 10vh;
+  z-index: 1;
+}
+
+#pudsefisk {
+  position: absolute;
+  width: 15%;
+  top: 170vh;
+  left: 145vh;
+  transform:scaleX(-1);
+  z-index: 1;
+}
+
+#hugofisk {
+  position: absolute;
+  width: 25%;
+  top: 350vh;
+  left: 130vh;
+  transform:scaleX(-1);
+  z-index: 1;
+}
+
+/* Overlay styles for fish details */
+.fish-overlay-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+.fish-overlay {
+  background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(193, 210, 255, 0.98));
+  color: #111;
+  width: min(720px, 90%);
+  max-height: 90vh;
+  overflow: auto;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+.fish-overlay img.preview {
+  max-width: 90%;
+  height: auto;
+  float: left;
+  margin-right: 16px;
+  border-radius: 8px;
+}
+.fish-overlay h2 {
+  margin-top: 0;
+}
+.fish-overlay .meta {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 8px;
+}
+.fish-overlay .close-btn {
+  background: #e74c3c;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  float: right;
+}
+.fish-overlay .clear { clear: both; }

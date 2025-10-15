@@ -1,0 +1,166 @@
+html, body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 450%;
+  background-size: 100%;
+  background-image: url('../images/rigtig.baggrund.png');
+  background-size: cover;
+  background-position: center;
+  overflow:scroll;
+  margin: 0;
+  background-repeat: no-repeat;
+}
+
+
+#akvariemanden {
+  position: absolute;
+  width: 300px;
+  transition: transform 0.5s ease, top 0.1s, left 0.1s; 
+  z-index: 2;
+}
+
+#logo {
+display: flex;
+justify-content:flex-start ;
+align-items: flex-start;
+  position: absolute;
+  width: 400px;
+  top: 20px;
+}
+
+#knap {
+  display: flex;
+  justify-content:flex-start ;
+  align-items: flex-start;
+  position: absolute;
+  width: 250px;
+  top: 45vh;
+}
+
+#klovnfisk {
+  position: absolute;
+  width: 15%;
+  top: 110vh;
+  left: 17vh;
+  z-index: 1;
+}
+
+#kejserfisk {
+  position: absolute;
+  width: 19%;
+  top: 300vh;
+  left: 10vh;
+  z-index: 1;
+}
+
+#pudsefisk {
+  position: absolute;
+  width: 15%;
+  top: 170vh;
+  left: 145vh;
+  transform:scaleX(-1);
+  z-index: 1;
+}
+
+#hugofisk {
+  position: absolute;
+  width: 25%;
+  top: 350vh;
+  left: 130vh;
+  transform:scaleX(-1);
+  z-index: 1;
+}
+
+#baggrundsfisk {
+  position: absolute;
+  width: 30%;
+  top: 120vh;
+  left: 150px;
+  /*animationen*/ 
+  animation-name: swim;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+}
+
+#baggrundsfisk2 {
+  position: absolute;
+  width: 30%;
+  top: 220vh;
+  left: 400px;
+  /*Animation*/
+  animation-name: bgfisk;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-delay: -4.5s;
+}
+
+#baggrundsfisk3 {
+  position: absolute;
+  width: 30%;
+  top: 300vh;
+  left: 150px;
+  /*animationen*/ 
+  animation-name: swim;
+  animation-duration: 10s;
+  animation-iteration-count: infinite; 
+  animation-delay: -2;
+}
+
+@keyframes swim {
+  0% {
+    left: 0;
+    transform: rotateY(0deg);
+  }
+  50% {
+    left: 1000px;
+    transform: rotateY(0deg);
+  }
+  51% {
+    transform: rotateY(180deg); /* smooth flip */
+  }
+  100% {
+    left: 0;
+    transform: rotateY(180deg);
+  }
+}
+
+
+
+
+@keyframes bgfisk {
+  0% {
+    left: 0;
+    transform: rotateY(0deg);
+  }
+  50% {
+    left: 1000px;
+    transform: rotateY(0deg);
+  }
+  51% {
+    transform: rotateY(180deg); /* smooth flip */
+  }
+  100% {
+    left: 0;
+    transform: rotateY(180deg);
+  }
+}
+
+p {
+  position: absolute;
+  top: 150px;
+  left: 200px;
+  color: white;
+  font-family:'Times New Roman', Times, serif;
+  text-shadow: 1px 1px 3px black;
+}
+
+#output {
+  top: 180px;
+  left: 260px;
+  position: absolute;
+  color: white;
+  font-family: Arial, sans-serif;
+  text-shadow: 1px 1px 3px black;
+}
+
