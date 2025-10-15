@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <title>Havmanden bevæger sig</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <div id="logo"> <img src="images/Logo.svg" alt="Logo"> </div>
+
+  <img id="knap" src="images/knap.png" alt="Knap" width="180vh" height="auto"> 
+
+ <div id="klovnfisk"><img src="images/KlovnGif.gif" alt="Klovn"> </div>
+
+ <div id="kejserfisk"><img src="images/KejserGif.gif" alt="Kejser"></div>
+
+ <div id="pudsefisk" onmouseover="overlay()"> <img  src="images/PudseGif.gif" alt="Pudse"> </div>
+
+ <div id="hugofisk"><img  src="images/HugoGif.gif" alt="Hugo"></div>
+
+ <img id="baggrundsfisk" src="images/baggrundsfisk.png" alt="Baggrundsfisk">
+
+  <img id="baggrundsfisk2" src="images/baggrundsfisk.png" alt="Baggrundsfisk2">
+
+  <img id="baggrundsfisk3" src="images/baggrundsfisk.png" alt="Baggrundsfisk3"> 
+  
+  <img id="akvariemanden" src="images/havfrue.png" alt="akvariemanden">
+  
+  <script src="js/js.js"></script>
+
+
+
+  <div id="overlay" class="hidden">
+    <div class="overlay-content">
+      <button class="close-overlay" onclick="closeOverlay()">×</button>
+      <img id="fiskBillede" src="" alt="Fisk billede" />
+      <h2 id="fiskNavn"></h2>
+      <p><strong>Latin:</strong> <span id="fiskArt"></span></p>
+      <p><strong>Livret:</strong> <span id="fiskLivret"></span></p>
+      <p><strong>Maks længde:</strong> <span id="fiskLaengde"></span> cm</p>
+      <p><strong>Akvarieegnet:</strong> <span id="fiskAkvarie"></span></p>
+      <p><strong>Levested:</strong> <span id="fiskLevested"></span></p>
+    </div>
+  </div>
+
+  
+</body>
+</html>
