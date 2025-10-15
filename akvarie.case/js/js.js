@@ -1,13 +1,13 @@
 
 
-const objekt = document.getElementById("billede");
+const objekt = document.getElementById("akvariemanden");
 let x = window.innerWidth / 2 - 100;  // startposition (midten)
 let y = window.innerHeight / 2 - 100; // startposition (midten)
 let rotationY = 0;                    // startvinkel
 const fart = 50;                      // hvor mange pixels den flytter sig
 
-// / Sørg for at 'objekt' peger på billedet/elementet du vil flytte
-// fx: const objekt = document.getElementById("billede");
+// / Sørg for at 'objekt' peger på billede/elementet du vil flytte
+// fx: const objekt = document.getElementById("akvariemanden");
 
 // Startposition på skærmen
 objekt.style.position = objekt.style.position || "absolute";
@@ -80,6 +80,8 @@ document.addEventListener("mousemove", (e) => {
   const output = document.getElementById("output");
   if (output) output.textContent = `Mus: ${Math.round(target.x)}, ${Math.round(target.y)}`;
 });
+
+
 
 
 
