@@ -34,7 +34,7 @@ align-items: flex-start;
   align-items: flex-start;
   position: absolute;
   width: 250px;
-  top: 360px;
+  top: 45vh;
 
 }
 
@@ -80,7 +80,7 @@ align-items: flex-start;
   position: absolute;
   width: 30%;
   top: 1000px;
-  left: 350px;
+  left: 400px;
 }
 
 p {
