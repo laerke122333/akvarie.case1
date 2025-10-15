@@ -1,3 +1,5 @@
+
+
 const objekt = document.getElementById("billede");
 let x = window.innerWidth / 2 - 100;  // startposition (midten)
 let y = window.innerHeight / 2 - 100; // startposition (midten)
@@ -38,11 +40,11 @@ function followMouse() {
   x += (target.x - x) * smooth;
   y += (target.y - y) * smooth;
 
-  // hold inden for vinduets kanter
-  const maxX = window.innerWidth - (objekt.offsetWidth || 0);
-  const maxY = window.innerHeight - (objekt.offsetHeight || 0);
-  x = clamp(x, 0, maxX);
-  y = clamp(y, 0, maxY);
+  // hold inden for vinduets kanter (synligt område)
+  const maxX = window.innerWidth - (objekt.offsetWidth || 0) + window.scrollX;
+  const maxY = window.innerHeight - (objekt.offsetHeight || 0) + window.scrollY;
+  x = Math.max(window.scrollX, Math.min(maxX, x));
+  y = Math.max(window.scrollY, Math.min(maxY, y));
 
   // vend mod musens vandrette retning
   if (Math.abs(target.x - x) > 0.5) {
@@ -54,62 +56,30 @@ function followMouse() {
   objekt.style.top = y + "px";
   objekt.style.transform = `rotateY(${rotationY}deg)`;
 
+  // *** kameraet følger objektet (centrér på det) ***
+  window.scrollTo({
+    left: x - window.innerWidth / 2 + (objekt.offsetWidth || 0) / 2,
+    top:  y - window.innerHeight / 2 + (objekt.offsetHeight || 0) / 2,
+    behavior: "auto" // eller "smooth" (kan føles træg i hvert frame)
+  });
+
   requestAnimationFrame(followMouse);
 }
 
 // Start animationen
 followMouse();
 
+// Opdater mål, når musen flytter sig (brug scroll-offset)
+document.addEventListener("mousemove", (e) => {
+  const halfW = objekt.offsetWidth / 2 || 0;
+  const halfH = objekt.offsetHeight / 2 || 0;
 
-//Hvis du vil have, at elementet ikke glider, men hopper direkte til musen, kan du skifte animations-loopet ud med en simpel opdatering inde i mousemove:
+  target.x = e.clientX + window.scrollX - halfW;
+  target.y = e.clientY + window.scrollY - halfH;
 
-
-
-
-
-objekt.style.left = x + "px";
-  objekt.style.top = y + "px";
-  objekt.style.transform = `rotateY(${rotationY}deg)`;
-  objekt.behavior
-
-  output.textContent = "Du trykkede på: " + tast.toUpperCase();
-
-  document.getElementById("billede").scrollIntoView({
-    behavior: "smooth",
-    block: "center",
-    inline: "center"
-  });
-// når man trykker på en tast
-// document.addEventListener("keydown", function(event) {
-//   const tast = event.key.toLowerCase();
-//   const output = document.getElementById("output");
-
-//   switch (tast) {
-//     case "w": // op
-//       y -= fart;
-//       if (y < 0) y = 0;
-//       break;
-
-//     case "s": // ned
-//       y += fart;
-//       if (y > window.innerHeight - -2000) y = window.innerHeight - -2000;
-//       break;
-
-
-//     case "a": // venstre + roter
-//       x -= fart;
-//       if (x < 0) x = 0;
-//       rotationY = 180; // vend mod venstre
-//       break;
-
-//     case "d": // højre + roter
-//       x += fart;
-//       if (x > window.innerWidth - 200) x = window.innerWidth - 200;
-//       rotationY = 0; // vend mod højre
-//       break;
-
-//   }
-
+  const output = document.getElementById("output");
+  if (output) output.textContent = `Mus: ${Math.round(target.x)}, ${Math.round(target.y)}`;
+});
 
 
 
