@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fiskene</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #e0f7fa;
+      text-align: center;
+      padding: 20px;
+    }
+
+    /* Overlay styling */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.7);
+      display: none;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .overlay-content {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 400px;
+      text-align: left;
+      position: relative;
+    }
+
+    .overlay-content img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: #ff5252;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Fiskene 🐠</h1>
+  <div id="buttons-container"></div>
+
+  <!-- Overlay -->
+  <div id="overlay" class="overlay">
+    <div class="overlay-content">
+      <button class="close-btn" onclick="closeOverlay()">×</button>
+      <img id="fiskBillede" src="" alt="Fisk billede" />
+      <h2 id="fiskNavn"></h2>
+      <p><strong>Latin:</strong> <span id="fiskArt"></span></p>
+      <p><strong>Livret:</strong> <span id="fiskLivret"></span></p>
+      <p><strong>Maks længde:</strong> <span id="fiskLaengde"></span> cm</p>
+      <p><strong>Akvarieegnet:</strong> <span id="fiskAkvarie"></span></p>
+      <p><strong>Levested:</strong> <span id="fiskLevested"></span></p>
+    </div>
+  </div>
+
+  <script>
+    const fiskene = [
+      {
+        navn: 'Klovnfisk',
+        art: 'Amphiprion ocellaris',
+        livret: 'Små krebsdyr',
+        levested: ['Det østlige Indiske Ocean', 'Australien', 'Indonesien'],
+        maxLaengde_cm: 8,
+        akvarieegnet: true,
+        billede: 'img/klovnimg.png',
+        gif: 'img/KlovnGif.gif'
+      },
+      {
+        navn: 'Dværgkejser',
+        art: 'Centropyge bicolor',
+        livret: 'Små krebsdyr',
+        levested: ['Det Indiske Ocean'],
+        maxLaengde_cm: 8,
+        akvarieegnet: true,
+        billede: 'img/kejserimg.png',
+        gif: 'img/KejserGif.gif'
+      },
+      {
+        navn: 'Pudseffisk',
+        art: 'Labroides dimidiatus',
+        livret: 'Parasitter',
+        levested: ['Det Indiske Ocean', 'Australien', 'Det Røde Hav', 'Indonesien', 'Stillehavet'],
+        maxLaengde_cm: 11,
+        akvarieegnet: true,
+        billede: 'img/pudseimg.png',
+        gif: 'img/PudseGif.gif'
+      },
+      {
+        navn: 'Hugofisk',
+        art: 'Salarias Faciatus',
+        livret: 'Mikroalger',
+        levested: ['Det Indiske Ocean', 'Australien', 'Japan', 'Det Røde Hav', 'Indonesien', 'Stillehavet'],
+        maxLaengde_cm: 14,
+        akvarieegnet: true,
+        billede: 'img/hugoimg.png',
+        gif: 'img/HugoGif.gif'
+      },
+    ];
+
+    const container = document.getElementById('buttons-container');
+    const overlay = document.getElementById('overlay');
+
+    // Create a button for each fish
+    fiskene.forEach((fisk, index) => {
+  const img = document.createElement('img');
+  img.src = fisk.gif;               // use the fish's gif
+  img.alt = fisk.navn;                 // for accessibility
+  img.style.width = '150px';           // you can change size here
+  img.style.margin = '10px';
+  img.style.cursor = 'pointer';
+  img.style.borderRadius = '12px';
+  img.style.transition = 'transform 0.3s';
+
+  // optional hover effect
+  img.onmouseover = () => img.style.transform = 'scale(1.05)';
+  img.onmouseout = () => img.style.transform = 'scale(1)';
+
+  img.onclick = () => openOverlay(index);
+  container.appendChild(img);
+});
+
+    // Open overlay with fish info
+    function openOverlay(index) {
+      const fisk = fiskene[index];
+  document.getElementById('fiskBillede').src = fisk.billede;
+  document.getElementById('fiskNavn').textContent = fisk.navn;
+  document.getElementById('fiskArt').textContent = fisk.art;
+  document.getElementById('fiskLivret').textContent = fisk.livret;
+  document.getElementById('fiskLevested').textContent = fisk.levested.join(', ');
+  document.getElementById('fiskLaengde').textContent = fisk.maxLaengde_cm;
+  document.getElementById('fiskAkvarie').textContent = fisk.akvarieegnet ? 'Ja' : 'Nej';
+      overlay.style.display = 'flex';
+    }
+
+    // Close overlay
+    function closeOverlay() {
+      overlay.style.display = 'none';
+    }
+  </script>
+</body>
+</html>
