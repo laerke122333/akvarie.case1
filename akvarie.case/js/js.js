@@ -26,9 +26,6 @@ document.addEventListener("mousemove", (e) => {
   target.x = e.clientX - halfW;
   target.y = e.clientY - halfH;
 
-  // (valgfrit) skriv koordinater ud hvis du bruger #output
-  const output = document.getElementById("output");
-  if (output) output.textContent = `Mus: ${Math.round(e.clientX)}, ${Math.round(e.clientY)}`;
 });
 
 // Hjælpefunktion til at holde objektet inde på skærmen
