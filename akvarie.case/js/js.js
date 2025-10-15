@@ -15,7 +15,7 @@ objekt.style.left = x + "px";
 objekt.style.top = y + "px";
 
 let target = { x, y };        // musens målposition (centreret under musen)
-let smooth = 0.12;            // 0..1 — lavere = mere glidende
+let smooth = 0.05;            // 0..1 — lavere = mere glidende
 
 // Opdater mål, når musen flytter sig
 document.addEventListener("mousemove", (e) => {
@@ -78,6 +78,50 @@ document.addEventListener("mousemove", (e) => {
   if (output) output.textContent = `Mus: ${Math.round(target.x)}, ${Math.round(target.y)}`;
 });
 
+
+const fiskene = [
+      {
+        navn: 'Klovnfisk',
+        art: 'Amphiprion ocellaris',
+        livret: 'Små krebsdyr',
+        levested: ['Det østlige Indiske Ocean', 'Australien', 'Indonesien'],
+        maxLaengde_cm: 8,
+        akvarieegnet: true,
+        billede: 'img/klovnimg.png',
+        gif: 'img/KlovnGif.gif'
+      },
+      {
+        navn: 'Dværgkejser',
+        art: 'Centropyge bicolor',
+        livret: 'Små krebsdyr',
+        levested: ['Det Indiske Ocean'],
+        maxLaengde_cm: 8,
+        akvarieegnet: true,
+        billede: 'img/kejserimg.png',
+        gif: 'img/KejserGif.gif'
+      },
+      {
+        navn: 'Pudseffisk',
+        art: 'Labroides dimidiatus',
+        livret: 'Parasitter',
+        levested: ['Det Indiske Ocean', 'Australien', 'Det Røde Hav', 'Indonesien', 'Stillehavet'],
+        maxLaengde_cm: 11,
+        akvarieegnet: true,
+        billede: 'img/pudseimg.png',
+        gif: 'img/PudseGif.gif'
+      },
+      {
+        navn: 'Hugofisk',
+        art: 'Salarias Faciatus',
+        livret: 'Mikroalger',
+        levested: ['Det Indiske Ocean', 'Australien', 'Japan', 'Det Røde Hav', 'Indonesien', 'Stillehavet'],
+        maxLaengde_cm: 14,
+        akvarieegnet: true,
+        billede: 'img/hugoimg.png',
+        gif: 'img/HugoGif.gif'
+      },
+    ];
+    
 
 
 

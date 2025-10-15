@@ -17,6 +17,7 @@ html, body {
   position: absolute;
   width: 300px;
   transition: transform 0.5s ease, top 0.1s, left 0.1s; 
+  z-index: 2;
 }
 
 #logo {
@@ -40,46 +41,109 @@ align-items: flex-start;
 #klovnfisk {
   position: absolute;
   width: 15%;
-  top: 900px;
-  left: 150px;
+  top: 110vh;
+  left: 17vh;
+  z-index: 1;
 }
 
 #kejserfisk {
   position: absolute;
   width: 19%;
-  top: 2500px;
-  left: 100px;
+  top: 300vh;
+  left: 10vh;
+  z-index: 1;
 }
 
 #pudsefisk {
   position: absolute;
   width: 15%;
-  top: 1400px;
-  left: 1200px;
+  top: 170vh;
+  left: 145vh;
   transform:scaleX(-1);
+  z-index: 1;
 }
 
 #hugofisk {
   position: absolute;
   width: 25%;
-  top: 2900px;
-  left: 1000px;
+  top: 350vh;
+  left: 130vh;
   transform:scaleX(-1);
+  z-index: 1;
 }
 
 #baggrundsfisk {
   position: absolute;
   width: 30%;
-  top: 800px;
+  top: 120vh;
   left: 150px;
-  transform:scaleX(-1);
+  /*animationen*/ 
+  animation-name: swim;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
 }
 
 #baggrundsfisk2 {
   position: absolute;
   width: 30%;
-  top: 1000px;
+  top: 220vh;
   left: 400px;
+  /*Animation*/
+  animation-name: bgfisk;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-delay: -4.5s;
+}
+
+#baggrundsfisk3 {
+  position: absolute;
+  width: 30%;
+  top: 300vh;
+  left: 150px;
+  /*animationen*/ 
+  animation-name: swim;
+  animation-duration: 10s;
+  animation-iteration-count: infinite; 
+  animation-delay: -2;
+}
+
+@keyframes swim {
+  0% {
+    left: 0;
+    transform: rotateY(0deg);
+  }
+  50% {
+    left: 1000px;
+    transform: rotateY(0deg);
+  }
+  51% {
+    transform: rotateY(180deg); /* smooth flip */
+  }
+  100% {
+    left: 0;
+    transform: rotateY(180deg);
+  }
+}
+
+
+
+
+@keyframes bgfisk {
+  0% {
+    left: 0;
+    transform: rotateY(0deg);
+  }
+  50% {
+    left: 1000px;
+    transform: rotateY(0deg);
+  }
+  51% {
+    transform: rotateY(180deg); /* smooth flip */
+  }
+  100% {
+    left: 0;
+    transform: rotateY(180deg);
+  }
 }
 
 p {
