@@ -1,7 +1,3 @@
-  
-  
-  
-  
   const fiskene = [
       {
         navn: 'Klovnfisk',

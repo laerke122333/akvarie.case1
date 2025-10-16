@@ -150,7 +150,6 @@
       img.style.width = '150px';
       img.style.height = 'auto';
 
-<<<<<<< HEAD:Daniels/Chatgpt test Daniel/test.html
       // Keep hover scaling only
       img.addEventListener('mouseover', () => img.style.transform = 'scale(1.05)');
       img.addEventListener('mouseout', () => img.style.transform = 'scale(1)');
@@ -160,23 +159,21 @@
 
       // --- Manual positioning per fish (edit these values) ---
       // Use 'px' for fixed coordinates or '%' for relative to container.
-      if (index === 0) { img.style.left = '0%'; img.style.top = '40%'; }
-      else if (index === 1) { img.style.left = '68%'; img.style.top = '60%'; }
-      else if (index === 2) { img.style.left = '30%'; img.style.top = '0%'; }
-      else if (index === 3) { img.style.left = '80%'; img.style.top = '0%'; }
+      if (index === 0) { img.style.left = '15%'; img.style.top = '0%'; }
+      else if (index === 1) { img.style.left = '35%'; img.style.top = '0%'; }
+      else if (index === 2) { img.style.left = '50%'; img.style.top = '0%'; }
+      else if (index === 3) { img.style.left = '70%'; img.style.top = '0%'; }
       // -------------------------------------------------------
 
       container.appendChild(img);
     });
-=======
   // // optional hover effect
   // img.onmouseover = () => img.style.transform = 'scale(1.05)';
   // img.onmouseout = () => img.style.transform = 'scale(1)';
 
   // img.onclick = () => openOverlay(index);
   // container.appendChild(img);
-});
->>>>>>> b426db852329f1bd56f28606af14c84f5799c19f:Chatgpt test Daniel/index.html
+;
 
     // Open overlay with fish info
     function openOverlay(index) {
