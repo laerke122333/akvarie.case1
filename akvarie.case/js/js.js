@@ -17,16 +17,6 @@ objekt.style.top = y + "px";
 let target = { x, y };        // musens målposition (centreret under musen)
 let smooth = 0.05;            // 0..1 — lavere = mere glidende
 
-// Opdater mål, når musen flytter sig
-document.addEventListener("mousemove", (e) => {
-  // centrer objektet under cursoren
-  const halfW = objekt.offsetWidth / 2 || 0;
-  const halfH = objekt.offsetHeight / 2 || 0;
-
-  target.x = e.clientX - halfW;
-  target.y = e.clientY - halfH;
-
-});
 
 // Hjælpefunktion til at holde objektet inde på skærmen
 function clamp(v, min, max) { return Math.max(min, Math.min(max, v)); } 
@@ -77,6 +67,26 @@ document.addEventListener("mousemove", (e) => {
   const output = document.getElementById("output");
   if (output) output.textContent = `Mus: ${Math.round(target.x)}, ${Math.round(target.y)}`;
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 const fiskene = [
